@@ -1,0 +1,8 @@
+{
+	"customer_table_id" : "ctl00_BodyContentPlaceHolder_GetTaxInfoControl_frm",
+	"account_cell_id" : "ctl00_BodyContentPlaceHolder_GetTaxInfoControl_frm_lblPropertyTaxAccountNo",
+	"address_cell_id" : "ctl00_BodyContentPlaceHolder_GetTaxInfoControl_frm_lblPropertyAddress",
+	"owner_cell_id" : "ctl00_BodyContentPlaceHolder_GetTaxInfoControl_frm_lblOwnerName",
+	
+	"balance_table_id" : "ctl00_BodyContentPlaceHolder_GetTaxInfoControl_grdPaymentsHistory"
+}

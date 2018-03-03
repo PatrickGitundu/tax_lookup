@@ -1,0 +1,27 @@
+{
+  "name": "tax_lookup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatrickGitundu/tax_lookup.git"
+  },
+  "author": "Patrick Gitundu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatrickGitundu/tax_lookup/issues"
+  },
+  "homepage": "https://github.com/PatrickGitundu/tax_lookup#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
