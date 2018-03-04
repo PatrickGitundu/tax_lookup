@@ -1,11 +1,12 @@
-FROM node:8-alpine
+FROM keymetrics/pm2:8-alpine
 
-RUN 
 RUN mkdir ~/apps
-RUN cd ~/apps
-COPY
+ADD tax_lookup ~/apps/tax_lookup 
 
-RUN npm install
-RUN npm install pm2 -g
+WORKDIR ~/apps/tax_lookup
 
-RUN pm2 start 
+# Install app dependencies
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN npm install --production
+
+CMD [ "pm2-runtime", "start", "pm2.json" ]

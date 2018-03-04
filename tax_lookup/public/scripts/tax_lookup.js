@@ -53,7 +53,15 @@ function getOutput() {
 		    	$('#outputDiv').fadeOut('slow', function() {
 	    		$('#outputDiv').html(
 					'<div class="row">' + 
-						'<div class="col s8"><h6>That BRT number does not exist, please confirm that the number is correct.</h6></div>' +
+						'<div class="col s8">' +
+							'<h5>Ooops! It seems an error has occured.</h5>' +
+							'<p>This could be due to the following reasons:</p>' + 
+							'<ol>' + 
+							'<li>That BRT number does not exist (was not found), please confirm that you have entered number correctly. <strong>OR</strong></li>' + 
+							'<li>The tax lookup application failed to respond.</li>' +
+							'</ol>' +
+							'<h6>Please try again.</h6>'
+							'</div>' +
 					'</div>'); 
 				$('#outputDiv').fadeIn('fast');
 				$('.preloader-wrapper').removeClass('active');

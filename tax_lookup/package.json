@@ -1,7 +1,7 @@
 {
   "name": "tax_lookup",
   "version": "1.0.0",
-  "description": "",
+  "description": "API to retrieve Real Estate Tax Information based on txtBRTNo",
   "main": "index.js",
   "scripts": {
   	"start" : "node ./bin/www",
