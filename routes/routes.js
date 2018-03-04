@@ -15,10 +15,8 @@ router.get('/lookup', lookup);
 function lookup(req,res) {
 	
 	var json;
-	//var uri_lookup = 'http://www.phila.gov/revenue/realestatetax/?txtBRTNo=';
-	var uri_lookup = 'http://www.phila.gov/revenue/realestatetax/?txtBRTNo=';
 	var options = {
-			uri: uri_lookup + req.query.brt,
+			uri: metadata.uri + req.query.brt,
 			transform: function (body) {
 				return cheerio.load(body);
 			}
@@ -28,23 +26,23 @@ function lookup(req,res) {
 		.then(($) => {
 			//Process the returned html and assign it to json for return to user
 			if ($('#' + metadata.customer_table_id).length) {
+				
+				var data = [];
+				$('#' + metadata.balance_table_id + ' tr:not(tr.grdHeader)').each(function() {
+					var row = [];
+					$(this).children().each(function() {
+						row.push($(this).text());
+					});
+					data.push(row);
+				});
+				
 				json = {
 						acc_number: $('#' + metadata.customer_table_id + ' ' + '#' + metadata.account_cell_id).text(),
 						owner: $('#' + metadata.customer_table_id + ' ' + '#' + metadata.owner_cell_id).text(),
 						address: $('#' + metadata.customer_table_id + ' ' + '#' + metadata.address_cell_id).text(),
+						balances: data
 				};
-				
-				var data = [];
-				$('#' + metadata.balance_table_id + ' tr').each(function() {
-					var row = $(this).find('td').text();
-					console.log(row);
-				});
-				
-				//console.log(data);
-				//json.push({balances:data});
-				
-				//console.log($('#' + metadata.balance_table_id + ' tr'));
-				
+
 				res.json(json);
 			}
 			else {
@@ -54,7 +52,8 @@ function lookup(req,res) {
 		})
 		.catch((err) => {
 			//Our page crawl failed
-			console.log(err);			
+			console.log(err);
+			res.status(500).send();
 		});
 }
 
