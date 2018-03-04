@@ -10,6 +10,10 @@ router.get('/', function(req,res) {
 	res.render('pages/home');
 });
 
+router.get('/about', function(req,res) {
+	res.render('pages/about');
+});
+
 router.get('/lookup', lookup);
 
 function lookup(req,res) {

@@ -1,7 +1,7 @@
 $(function () {
     $('#retrieve').bind('click', function() {
     	try {
-    		$('.indeterminate').show();
+    		$('.preloader-wrapper').addClass('active');
     		getOutput();
     	} 
     	catch (err) {
@@ -47,7 +47,7 @@ function getOutput() {
 						
 						$('#outputDiv').html( output + '</tbody></table>' +'</div>'); 
 					$('#outputDiv').fadeIn('fast');
-					$('.indeterminate').hide();
+					$('.preloader-wrapper').removeClass('active');
 				});
 		    }).fail(function(err) {
 		    	$('#outputDiv').fadeOut('slow', function() {
@@ -56,7 +56,7 @@ function getOutput() {
 						'<div class="col s8"><h6>That BRT number does not exist, please confirm that the number is correct.</h6></div>' +
 					'</div>'); 
 				$('#outputDiv').fadeIn('fast');
-				$('.indeterminate').hide();
+				$('.preloader-wrapper').removeClass('active');
 				});
 		    	//This will also throw a error 404 taht jQuery will print to the console.
 		    });
