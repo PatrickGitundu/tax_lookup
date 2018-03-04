@@ -20,7 +20,7 @@ function lookup(req,res) {
 	
 	var json;
 	var options = {
-			uri: metadata.uri + req.query.brt,
+			uri: metadata.uri + req.query.txtBRTNo,
 			transform: function (body) {
 				return cheerio.load(body);
 			}
@@ -51,7 +51,7 @@ function lookup(req,res) {
 			}
 			else {
 				//If the page contains an error message, i.e. the table containing customer information does not exist, inform the user
-				res.status(404).send({status: 404, message:'That BRT does not exist'});
+				res.status(500).send({status: 500, message:'That BRT does not exist'});
 			}
 		})
 		.catch((err) => {

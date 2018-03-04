@@ -1,4 +1,4 @@
-#Tax Lookup
+# Tax Lookup
 
 ### An HTTP API to provide real estate tax balance data for a given account number.
 
@@ -9,5 +9,5 @@ Build and run the image using the following instructions
 docker build -t [NAME YOUR IMAGE] .
 docker run -dit --name [NAME YOUR CONTAINER] IMAGE
 ```
-Once done you can view the app from the container's IP address.
-Enter the Account number you would like and   
+<p>Once done you can view the app from the container's IP address.</p>
+<p>Enter the Account number you would like and you should receive the tax balance info.</p> 
