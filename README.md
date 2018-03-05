@@ -11,4 +11,7 @@ docker run -dit --name [NAME YOUR CONTAINER] IMAGE
 ```
 <p>Once done you can view the app from the container's IP address.</p>
 <p>Enter the Account number you would like and you should receive the tax balance info.</p>
-<p>Or you could run `curl http://[CONTAINER IP ADDRESS]/lookup?txtBRTNo=[ACCOUNT NUMBER]` from the console.</p>
+<p>Or you could run the following from the console to view the json payload.</p>
+```
+curl http://[CONTAINER IP ADDRESS]/lookup?txtBRTNo=[ACCOUNT NUMBER
+```

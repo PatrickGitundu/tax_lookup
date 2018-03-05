@@ -21,7 +21,8 @@ function getOutput() {
 				function(response) {
 					$('#outputDiv').fadeOut('slow', function() {
 						var output = '<div class="row">' + 
-						'<table class="striped">' + 
+						'<div class="row"><div class="col s6"><h6>Account Information</h6></div></div>' +
+						'<table class="striped responsive-table">' + 
 						'<thead><tr>' + '<th>Account Number</th>' + '<th>Owner</th>' + '<th>Address</th>' + '</tr></thead>' +
 						'<tbody><tr>' +
 						'<td>' + response.acc_number + '</td>' + 
@@ -29,9 +30,9 @@ function getOutput() {
 						'<td>' + response.address + '</td>' +
 						'</tr></tbody>' +
 						'</table>' + '</br>' +
+						'<div class="row"><div class="col s6"><h6>Real Estate Tax Balance Information</h6></div></div>' +
 						'<table class="striped responsive-table" style="margin-top:10px;">' + 
-						'<thead><tr><th colspan="9">Real Estate Tax Balance Information</th></tr>' +
-						'<tr>' + '<th>Year</th>' + '<th>Principal</th>' + '<th>Interest</th>' + '<th>Penalty</th>' +
+						'<thead><tr>' + '<th>Year</th>' + '<th>Principal</th>' + '<th>Interest</th>' + '<th>Penalty</th>' +
 						'<th>Other</th>' + '<th>Total</th>' + '<th>Lien#</th>' + '<th>City Solicitor</th>' + '<th>Status</th>' + '</tr></thead><tbody>';
 						
 						var bal_length  = response.balances.length;

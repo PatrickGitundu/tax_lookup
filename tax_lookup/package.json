@@ -4,8 +4,8 @@
   "description": "API to retrieve Real Estate Tax Information based on txtBRTNo",
   "main": "index.js",
   "scripts": {
-  	"start" : "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "test": "mocha --timeout 6000"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,7 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "mocha": "^2.4.5"
+    "mocha": "^5.0.1",
+    "supertest": "^3.0.0"
   }
 }
