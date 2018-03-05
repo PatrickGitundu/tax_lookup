@@ -1,28 +1,31 @@
-var express = require('express');
+/*
+ * Load our library dependencies
+ */
+let express = require('express');
 const router = require('./routes/routes')
-var path = require('path');
+let path = require('path');
 
-var app = express();
+let app = express();
 
-//view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, '/public')));
 
-//Reroute our APIs to a router
+// Reroute all our API calls to a dedicated controller.
 app.use('/', router);
 
-//catch 404 and forward to error handler
+// Catch 404 and forward to error handler.
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-//error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // Set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
