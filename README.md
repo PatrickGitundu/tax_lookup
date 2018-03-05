@@ -7,11 +7,11 @@ This API scrapes the HTML of the City of Philadelphia's tax lookup applicationâ€
 Build and run the image using the following instructions
 ```
 docker build -t [NAME YOUR IMAGE] .
-docker run -dit --name [NAME YOUR CONTAINER] IMAGE
+docker run -d --name [NAME YOUR CONTAINER] IMAGE_NAME
 ```
-<p>Once done you can view the app from the container's IP address.</p>
+<p>Once done, you can view the app from the container's IP address.</p>
 <p>Enter the Account number you would like and you should receive the tax balance info.</p>
-<p>Or you could run the following from the console to view the json payload.</p>
+Or you could run the following from the command line to view the json payload.
 ```
-curl http://[CONTAINER IP ADDRESS]/lookup?txtBRTNo=[ACCOUNT NUMBER
+curl http://[CONTAINER IP ADDRESS]/lookup?txtBRTNo=[ACCOUNT NUMBER]
 ```

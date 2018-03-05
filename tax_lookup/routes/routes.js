@@ -57,7 +57,7 @@ function lookup(req,res) {
 		.catch((err) => {
 			//Our page crawl failed
 			console.log(err);
-			res.status(500).send();
+			res.status(500).send({status: 500, message:'The html page did not render and so could not be scraped.'});
 		});
 }
 

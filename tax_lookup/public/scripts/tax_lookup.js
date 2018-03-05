@@ -21,8 +21,8 @@ function getOutput() {
 				function(response) {
 					$('#outputDiv').fadeOut('slow', function() {
 						var output = '<div class="row">' + 
-						'<div class="row"><div class="col s6"><h6>Account Information</h6></div></div>' +
-						'<table class="striped responsive-table">' + 
+						'<div class="row"><div class="col s12"><h6>Account Information</h6></div></div>' +
+						'<table class="striped">' + 
 						'<thead><tr>' + '<th>Account Number</th>' + '<th>Owner</th>' + '<th>Address</th>' + '</tr></thead>' +
 						'<tbody><tr>' +
 						'<td>' + response.acc_number + '</td>' + 
@@ -30,7 +30,7 @@ function getOutput() {
 						'<td>' + response.address + '</td>' +
 						'</tr></tbody>' +
 						'</table>' + '</br>' +
-						'<div class="row"><div class="col s6"><h6>Real Estate Tax Balance Information</h6></div></div>' +
+						'<div class="row"><div class="col s12"><h6>Real Estate Tax Balance Information</h6></div></div>' +
 						'<table class="striped responsive-table" style="margin-top:10px;">' + 
 						'<thead><tr>' + '<th>Year</th>' + '<th>Principal</th>' + '<th>Interest</th>' + '<th>Penalty</th>' +
 						'<th>Other</th>' + '<th>Total</th>' + '<th>Lien#</th>' + '<th>City Solicitor</th>' + '<th>Status</th>' + '</tr></thead><tbody>';
