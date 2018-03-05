@@ -9,8 +9,33 @@ $(function () {
     		// Initialize our loading graphic to indicate to the user that the API is retrieving data.
     		$('.preloader-wrapper').addClass('active');
     		// Call our function to call the API and process the returned json into our tables
-    		getOutput();
-    	} 
+    		/* 
+    		 * Retrieve our account number from the input text box and remove all non-digits from the string using a regular expression.
+    		 * I left this as the only validation because I was not sure if the length of the account number is ALWAYS 9 numerical digits and so I did
+    		 * not provide any validation to ensure that the account number entered by the user was always 9 digits long.  
+    		 */
+    		var brt  = $('#txtBRT').val().replace(/\D/g,'');
+    		// If the account number provided by the user contained any mistakes, replace it with a cleaned up string. 
+    		$('#txtBRT').val(brt);
+    		
+    		if(brt > 0) {
+    			getOutput(brt);
+    		}
+    		else if (isNaN(brt) || brt == '') {
+    			$('#outputDiv').fadeOut('slow', function() {
+    	    		$('#outputDiv').html(
+    					'<div class="row">' + 
+    						'<div class="col s8">' +
+    							'<h5>Oops! It seems an error has occured.</h5>' +
+    							'<p>You did not provide a valid account number.</p>' + 
+    							'<h6>Please try again.</h6>' +
+    							'</div>' +
+    					'</div>'); 
+				$('#outputDiv').fadeIn('fast');
+				$('.preloader-wrapper').removeClass('active');
+    			});
+    		}
+    	}
     	catch (err) {
     		console.log(err);
     	}
@@ -21,11 +46,10 @@ $(function () {
  * A function to call our API and parse the returned JSON into tables.
  * If the call did not return any result, inform the user that the call failed.
  */
-function getOutput() {
+function getOutput(brt) {
 	// Get response and add it to our outputDiv
 	try {
-		// Retrieve our account number from the input text box and remove all non-digits from the string using a regular expression.
-		var brt  = $('#txtBRT').val().replace(/\D/g,'');
+				
 		// Assign our number only string to a JSON for our AJAX call
 		var data = { txtBRTNo: brt };
 		// Use JQuery's built-in getJSON function to call our API
@@ -74,7 +98,7 @@ function getOutput() {
 							'<h5>Oops! It seems an error has occured.</h5>' +
 							'<p>This could be due to the following reasons:</p>' + 
 							'<ol>' + 
-							'<li>That BRT number does not exist (was not found), please confirm that you have entered number correctly. <strong>OR</strong></li>' + 
+							'<li>That BRT number does not exist (was not found), please confirm that you have entered the number correctly. <strong>OR</strong></li>' + 
 							'<li>The tax lookup application failed to respond.</li>' +
 							'</ol>' +
 							'<h6>Please try again.</h6>' +
